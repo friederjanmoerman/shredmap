@@ -1,9 +1,5 @@
-<script>
-  import Navbar from '../components/Navbar.svelte'
-</script>
-
 <div class="heading">
-  <Navbar />
+    <h1>This is my map App</h1>
   </div>
   
   <style>
