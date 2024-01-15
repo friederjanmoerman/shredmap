@@ -1,24 +1,9 @@
 <script>
   import Navbar from '../components/Navbar.svelte'
+  import Map from '../components/Map.svelte';
 </script>
 
-<div class="heading">
+<main>
   <Navbar />
-  </div>
-  
-  <style>
-    .heading {
-      margin: 0;
-      padding: 0px;
-      background-color: 
-  black;
-      color: 
-  white;
-      text-align: center;
-    }
-  
-    .heading > h1 {
-      padding: 20px;
-      margin: 0;
-    }
-  </style>
+  <Map />
+</main>
