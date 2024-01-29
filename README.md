@@ -1,38 +1,30 @@
-# create-svelte
+# Shredmap
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Local startup
 
-## Creating a project
+### 1. Create new project
 
-If you're seeing this, you've probably already done this step. Congrats!
+Sign up to Supabase - [https://supabase.com/dashboard](https://supabase.com/dashboard) and create a new project. Wait for your database to start.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### 2. Run "User Management" Quickstart
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Once your database has started, head over to your project's `SQL Editor` and run the "User Management Starter" quickstart. On the `SQL editor` page, scroll down until you see `User Management Starter: Sets up a public Profiles table which you can access with your API`. Click that, then click `RUN` to execute that query and create a new `profiles` table. When that's finished, head over to the `Table Editor` and see your new `profiles` table.
 
-## Developing
+### 3. Get the URL and Key
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Go to the Project Settings (the cog icon), open the API tab, and find your API URL and `anon` key, you'll need these in the next step.
 
-```bash
-npm run dev
+The `anon` key is your client-side API key. It allows "anonymous access" to your database, until the user has logged in. Once they have logged in, the keys will switch to the user's own login token. This enables row level security for your data. Read more about this [below](#postgres-row-level-security).
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+![image](https://user-images.githubusercontent.com/10214025/88916245-528c2680-d298-11ea-8a71-708f93e1ce4f.png)
 
-## Building
+**_NOTE_**: The `service_role` key has full access to your data, bypassing any security policies. These keys have to be kept secret and are meant to be used in server environments and never on a client or browser.
 
-To create a production version of your app:
+### 4. Env vars
 
-```bash
-npm run build
-```
+Create `.env.local` from the `.env.example` file and populate this file with your URL and Key.
 
-You can preview the production build with `npm run preview`.
+### 5. Run the application
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Run the application: `npm run dev`. Open your browser to `https://localhost:5173/` and you are ready to go 🚀.
+
